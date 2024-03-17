@@ -1,0 +1,38 @@
+#Se a população de uma determinada região aumentar anualmente de um trigésimo e, a
+#certa altura, houver 100 000 habitantes, queremos conhecer a população 100 anos depois.
+
+r = 1/30
+p_0 = 100 _000
+t = 100 #em anos
+p_t = ((1+ r )** t )* p_0
+print ( p_t )
+
+#Uma vez que, após o Dilúvio, todos os homens descenderam de uma população de seis
+#elementos, e supondo que a população duzentos anos depois era de 1 000 000, queremos
+#determinar a taxa de crescimento anual.
+
+p_0 = 6
+t = 200 #em anos
+p_t = 10**6
+r = (( p_t / p_0 )**(1/ t )) -1
+print ( r *100 ,"%")
+
+#Se a população humana aumentar anualmente de 1/100, gostaríamos de saber quanto
+#tempo ser´a preciso para que a popula¸c˜ao se torne dez vezes maior.
+
+import matplotlib . pyplot as plt
+import numpy as np
+from math import log10
+r = (1/100)
+t = 1/( log10 (101) -2)
+print (t , " anos ")
+def p_t ( t ):
+r = (1/100)
+p_0 = 2
+return p_0 *(1+ r )** t
+plt . yscale (’log ’)
+plt . xlim (0 ,250)
+t = np . array ([0 , 50 , 100 , 150 , 200 , 250])
+plt . plot (t , p_t ( t ))
+plt . xlabel (’t’)
+plt . ylabel (’p_t(t)’)
